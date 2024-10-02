@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Organize Configuration Schema",
+    "type": "object",
+    "additionalProperties": {
+        "type": "object",
+        "properties": {
+            "types": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "pattern": "^\\.[a-zA-Z0-9]+$"
+                }
+            },
+            "directories": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "folder": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "types",
+            "directories",
+            "folder"
+        ],
+        "additionalProperties": false
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "images": {
+        "types": [
+            ".png",
+            ".jpg",
+            ".webp",
+            ".svg",
+            ".gif",
+            ".jfif",
+            ".jpeg",
+            ".avif",
+            ".ico"
+        ],
+        "directories": [
+            "C:\\Users\\Cayden Harris\\Downloads"
+        ],
+        "folder": "C:\\Users\\Cayden Harris\\Pictures"
+    },
+    "videos": {
+        "types": [
+            ".mp4",
+            ".mov",
+            ".wmv"
+        ],
+        "directories": [
+            "C:\\Users\\Cayden Harris\\Downloads"
+        ],
+        "folder": "C:\\Users\\Cayden Harris\\Videos"
+    },
+    "archives": {
+        "types": [
+            ".zip",
+            ".gzip",
+            ".tar"
+        ],
+        "directories": [
+            "C:\\Users\\Cayden Harris\\Downloads"
+        ],
+        "folder": "C:\\Users\\Cayden Harris\\Downloads\\archives"
+    },
+    "audio": {
+        "types": [
+            ".mp3",
+            ".wav"
+        ],
+        "directories": [
+            "C:\\Users\\Cayden Harris\\Downloads"
+        ],
+        "folder": "C:\\Users\\Cayden Harris\\Music"
+    }
+}
