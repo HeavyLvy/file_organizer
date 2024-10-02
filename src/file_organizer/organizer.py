@@ -1,7 +1,3 @@
-"""
-main.py
-"""
-
 import json
 import os
 import shutil
@@ -75,18 +71,19 @@ def organize_files(
                     )
 
 
-def main(logger) -> None:
+def organize_folder_from_config(configuration_path: str, logger) -> None:
     """
-    Main function to be run.
+    Organizes files to there respectful folder based on a config.
+
+    :param configuration_path: The path where the configuration is located.
     :param logger: A logger to be used, designed to work with the logging module.
     :return: None
     """
-
-    configuration_path = "my_configuration.json"
-
-    logger.info("Organizing files!")
-
-    # region Load configuration.
+    
+    # region Load configuration.    
+    if not os.path.exists(configuration_path):
+        logger.error(f'Could not find config file from: "{configuration_path}"')
+        raise FileNotFoundError(f'Could not find config file from: "{configuration_path}"')
     try:
         with open(configuration_path, "r") as f:
             configuration: dict = json.load(f)
@@ -104,15 +101,6 @@ def main(logger) -> None:
 
     for title, data in configuration.items():
         logger.info(f"Organizing {title}")
-        organize_files(data["types"], data["directories"], data["folder"], logger=logger)
-
-
-if __name__ == "__main__":
-    my_logger = loguru.logger
-    my_logger.add("organize.log")
-
-    try:
-        main(my_logger)
-    except Exception as e:
-        my_logger.error(f"Program crashed because: {e}")
-        my_logger.info(f"GLOBALS: {globals()}")
+        organize_files(
+            data["types"], data["directories"], data["folder"], logger=logger
+        )

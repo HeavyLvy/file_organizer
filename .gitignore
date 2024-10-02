@@ -1,9 +1,10 @@
 .idea
 .venv
-.mypy_cache
 .python-version
 dist
 
 *.log
 *.lock
 *cache*
+
+*dev_test*

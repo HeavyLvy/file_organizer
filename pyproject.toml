@@ -1,5 +1,5 @@
 [project]
-name = "file-organzier"
+name = "file-organizer"
 version = "0.1.0"
 description = "Organzie your files with ease"
 readme = "README.md"
@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = ["loguru==0.7.2", "jsonschema==4.23.0"]
 
 [project.scripts]
-fo = "file_organzier:cli.main_cli_command"
+fo = "file_organizer:cli.main_cli_command"
 
 [build-system]
 requires = ["hatchling"]
