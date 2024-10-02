@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = ["loguru==0.7.2", "jsonschema==4.23.0"]
 
 [project.scripts]
-fo = "file_organizer:cli.main_cli_command"
+fo = "file_organizer:cli.main"
 
 [build-system]
 requires = ["hatchling"]
