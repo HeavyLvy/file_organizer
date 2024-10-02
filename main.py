@@ -23,7 +23,7 @@ def convert_dir_to_os_format(dir_path: str) -> str:
     return normalized_path
 
 
-def organize(
+def organize_files(
     file_types: list[str], directories: list[str], folder: str, logger
 ) -> None:
     """
