@@ -40,3 +40,5 @@ The commit message should be the same as the comment:
 git add .
 git commit -m 'type: ignore # | false positive | "int" is not compatible with "str" - pyright'
 ```
+
+**Don't suppress spelling errors**
