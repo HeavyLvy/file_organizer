@@ -104,7 +104,7 @@ def main(logger) -> None:
 
     for title, data in configuration.items():
         logger.info(f"Organizing {title}")
-        organize(data["types"], data["directories"], data["folder"], logger=logger)
+        organize_files(data["types"], data["directories"], data["folder"], logger=logger)
 
 
 if __name__ == "__main__":
