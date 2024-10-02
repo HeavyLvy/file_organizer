@@ -4,20 +4,7 @@ import shutil
 
 import jsonschema
 import loguru
-
-
-def convert_dir_to_os_format(dir_path: str) -> str:
-    """
-    Converts the input directory path to the correct OS-specific format.
-    :param dir_path: The input directory path.
-    :return: The converted directory path.
-    """
-
-    # Normalize the path to handle forward and backward slashes consistently
-    normalized_path = os.path.normpath(dir_path)
-
-    return normalized_path
-
+from . import common
 
 def organize_files(
     file_types: list[str], directories: list[str], folder: str, logger
@@ -32,8 +19,8 @@ def organize_files(
     """
 
     # region Convert folder path and directory paths to OS-specific format
-    folder = convert_dir_to_os_format(folder)
-    directories = list(map(convert_dir_to_os_format, directories))
+    folder = common.convert_dir_to_os_format(folder)
+    directories = list(map(common.convert_dir_to_os_format, directories))
     # endregion
 
     if folder in directories:
