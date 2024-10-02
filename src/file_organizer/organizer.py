@@ -80,6 +80,8 @@ def organize_folder_from_config(configuration_path: str, logger) -> None:
     :return: None
     """
     
+    CONFIGURATION_SCHEMA_PATH = os.path.join(os.path.dirname(__file__), 'configuration_schema.json')
+    
     # region Load configuration.    
     if not os.path.exists(configuration_path):
         logger.error(f'Could not find config file from: "{configuration_path}"')
@@ -90,7 +92,7 @@ def organize_folder_from_config(configuration_path: str, logger) -> None:
     except json.decoder.JSONDecodeError as e:
         logger.error(f"Failed to load json configuration because: {e}")
         return
-    with open("configuration_schema.json", "r") as f:
+    with open(CONFIGURATION_SCHEMA_PATH, "r") as f:
         schema = json.load(f)
     try:
         jsonschema.validate(configuration, schema)
