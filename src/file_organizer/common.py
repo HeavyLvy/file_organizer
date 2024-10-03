@@ -1,4 +1,7 @@
 import os
+import tomllib
+import pkg_resources
+
 
 def convert_dir_to_os_format(dir_path: str) -> str:
     """
@@ -11,3 +14,20 @@ def convert_dir_to_os_format(dir_path: str) -> str:
     normalized_path = os.path.normpath(dir_path)
 
     return normalized_path
+
+
+def get_package_version() -> str:
+    """
+    Gets the current version of the package.
+    if its installed, it will return the installed version
+    else its in development mode and it will return the version from `pyproject.toml`
+    :return: The current version of the package.
+    """
+    try:
+        # If the package is installed
+        return pkg_resources.get_distribution("file_organizer").version
+    except pkg_resources.DistributionNotFound:
+        # If the package is in development
+        with open("pyproject.toml", "r") as f:
+            toml = tomllib.loads(f.read())
+            return toml["project"]["version"]
