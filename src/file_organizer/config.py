@@ -50,9 +50,9 @@ def get_package_version():
 
 def create_config_dirs(current_version, data_path, logger):
     if not os.path.exists(data_path):
-        logger.info(f"Created {data_path}")
+        logger.info(f"Created '{data_path}'")
         os.mkdir(data_path)
-        os.mkdir(os.path.join(data_path, "configs.json"))
+        os.mkdir(os.path.join(data_path, "configs"))
 
         with open(os.path.join(data_path, "version.json"), "w") as f:
             base = {"file_organizer": current_version, "config": CONFIG_VERSION}

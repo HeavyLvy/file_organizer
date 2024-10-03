@@ -4,7 +4,9 @@ import shutil
 
 import jsonschema
 import loguru
+
 from . import common
+
 
 def organize_files(
     file_types: list[str], directories: list[str], folder: str, logger
@@ -66,13 +68,17 @@ def organize_folder_from_config(configuration_path: str, logger) -> None:
     :param logger: A logger to be used, designed to work with the logging module.
     :return: None
     """
-    
-    CONFIGURATION_SCHEMA_PATH = os.path.join(os.path.dirname(__file__), 'configuration_schema.json')
-    
-    # region Load configuration.    
+
+    CONFIGURATION_SCHEMA_PATH = os.path.join(
+        os.path.dirname(__file__), "configuration_schema.json"
+    )
+
+    # region Load configuration.
     if not os.path.exists(configuration_path):
         logger.error(f'Could not find config file from: "{configuration_path}"')
-        raise FileNotFoundError(f'Could not find config file from: "{configuration_path}"')
+        raise FileNotFoundError(
+            f'Could not find config file from: "{configuration_path}"'
+        )
     try:
         with open(configuration_path, "r") as f:
             configuration: dict = json.load(f)

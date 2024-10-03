@@ -1,17 +1,18 @@
 import argparse
 import sys
 
+
 def main():
     parser = argparse.ArgumentParser(description="A CLI with subcommands")
-    subparsers = parser.add_subparsers(help='sub-command help')
+    subparsers = parser.add_subparsers(help="sub-command help")
 
-    load_parser = subparsers.add_parser('load', help='Load data')
-    load_parser.add_argument('filename', help='Input filename')
+    load_parser = subparsers.add_parser("load", help="Load data")
+    load_parser.add_argument("filename", help="Input filename")
 
-    list_parser = subparsers.add_parser('list', help='List data')
+    list_parser = subparsers.add_parser("list", help="List data")
 
-    save_parser = subparsers.add_parser('save', help='Save data')
-    save_parser.add_argument('filename', help='Output filename')
+    save_parser = subparsers.add_parser("save", help="Save data")
+    save_parser.add_argument("filename", help="Output filename")
 
     args = parser.parse_args()
 
@@ -30,6 +31,7 @@ def main():
     # else:
     #     parser.print_help()
     #     sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
