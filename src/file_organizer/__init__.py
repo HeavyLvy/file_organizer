@@ -7,7 +7,7 @@ Create a JSON configuration and run the command
 """
 
 from . import organizer
-from . import config as __config
+from . import config as __config # none # | false positive | SyntaxError: invalid syntax (./file_organizer/src/file_organizer/__init__.py, line 10) - vscode
 
 import loguru
 
