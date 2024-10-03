@@ -90,7 +90,7 @@ def save_config(config_file_path: str, config_name: str) -> None:
     shutil.copy(config_file_path, os.path.join(CONFIGS_DIR, config_name))
 
 
-def load_config(config_name: str) -> dict:
+def load_config(config_name: str):
     """
     Loads the config called 'config_name' from the 'configs' dir
 
