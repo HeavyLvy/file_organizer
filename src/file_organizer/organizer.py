@@ -9,7 +9,7 @@ from . import common
 
 
 def organize_files(
-    file_types: list[str], directories: list[str], folder: str, logger
+        file_types: list[str], directories: list[str], folder: str, logger
 ) -> None:
     """
     Organizes files in a directory by file type and moves it into a folder.
@@ -85,10 +85,8 @@ def organize_folder_from_config(configuration_path: str, logger) -> None:
     except json.decoder.JSONDecodeError as e:
         logger.error(f"Failed to load json configuration because: {e}")
         return
-    with open(CONFIGURATION_SCHEMA_PATH, "r") as f:
-        schema = json.load(f)
     try:
-        jsonschema.validate(configuration, schema)
+        common.validate_config(configuration)
     except jsonschema.exceptions.ValidationError as e:  # type: ignore # | False Positive | "exceptions" is not a known attribute of module "jsonschema" - pyright
         logger.error(f"json configuration failed schema validation because: {e}")
         return

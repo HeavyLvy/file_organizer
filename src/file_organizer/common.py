@@ -1,6 +1,8 @@
+import json
 import os
 import tomllib
 import pkg_resources
+import jsonschema
 
 
 def convert_dir_to_os_format(dir_path: str) -> str:
@@ -31,3 +33,15 @@ def get_package_version() -> str:
         with open("pyproject.toml", "r") as f:
             toml = tomllib.loads(f.read())
             return toml["project"]["version"]
+
+
+def validate_config(configuration: dict):
+    configuration_schema_path = os.path.join(
+        os.path.dirname(__file__), "configuration_schema.json"
+    )
+
+    with open(configuration_schema_path, "r") as f:
+        schema = json.load(f)
+
+    jsonschema.validate(configuration, schema)
+
