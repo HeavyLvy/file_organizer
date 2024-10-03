@@ -7,7 +7,7 @@ Create a JSON configuration and run the command
 """
 
 from . import organizer
-from . import config as _config
+from . import config as __config
 
 import loguru
 
@@ -16,4 +16,4 @@ CONFIG_VERSION = 0
 logger = loguru.logger
 
 # Create config dir and config file
-_config.create_config_dirs(_config.CONFIG_VERSION, _config.DATA_PATH, logger)
+__config.create_config_dirs(__config.CONFIG_VERSION, __config.DATA_PATH, logger)
